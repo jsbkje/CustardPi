@@ -1,1 +1,4 @@
 libraspberrypi-bin libraspberrypi0 raspi-config
+apt-transport-https
+openssl
+apache2
