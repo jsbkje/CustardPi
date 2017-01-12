@@ -18,11 +18,11 @@ install -v -o 1000 -g 1000 -d ${ROOTFS_DIR}/home/pi/python_games
 tar xvf files/python_games.tar.gz -C ${ROOTFS_DIR}/home/pi/python_games --strip-components=1
 tar xvf files/WebIOPi-0.7.1.tar.gz -C ${ROOTFS_DIR}/home/pi
 chown 1000:1000 ${ROOTFS_DIR}/home/pi/python_games -Rv
-chown 1000:1000 ${ROOTFS_DIR}/home/pi/webiopi -Rv
+chown 1000:1000 ${ROOTFS_DIR}/home/pi/WebIOPi-0.7.1 -Rv
 chmod +x ${ROOTFS_DIR}/home/pi/python_games/launcher.sh
 chmod +x ${ROOTFS_DIR}/home/pi/WebIOPi-0.7.1/setup.sh
 
-on_chroot  sh ${ROOTFS_DIR}/home/pi/WebIOPi-0.7.1/setup.sh
+on_chroot  ${ROOTFS_DIR}/home/pi/WebIOPi-0.7.1/setup.sh
 
 
 install -v -o 1000 -g 1000 -d "${ROOTFS_DIR}/home/pi/Documents"
