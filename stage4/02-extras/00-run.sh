@@ -21,7 +21,7 @@ chown 1000:1000 ${ROOTFS_DIR}/home/pi/python_games -Rv
 chown 1000:1000 ${ROOTFS_DIR}/home/pi/webiopi -Rv
 chmod +x ${ROOTFS_DIR}/home/pi/python_games/launcher.sh
 chmod +x ${ROOTFS_DIR}/home/pi/WebIOPi-0.7.1/setup.sh
-./setup.sh -n
+
 on_chroot  sh ${ROOTFS_DIR}/home/pi/WebIOPi-0.7.1/setup.sh
 
 
