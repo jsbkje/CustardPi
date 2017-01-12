@@ -10,13 +10,18 @@ if [ ! -e files/python_games.tar.gz ] || [ "$HASH" != "$HASH_LOCAL"  ]; then
 	wget "https://github.com/KenT2/python-games/tarball/master" -O files/python_games.tar.gz
 	echo $HASH > files/python_games.hash
 fi
+wget "https://sourceforge.net/projects/webiopi/files/WebIOPi-0.7.1.tar.gz" -O files/WebIOPi-0.7.1.tar.gz
 
 ln -sf pip3 ${ROOTFS_DIR}/usr/bin/pip-3.2
-
+install -v -o 1000 -g 1000 -d ${ROOTFS_DIR}/home/pi/webiopi
 install -v -o 1000 -g 1000 -d ${ROOTFS_DIR}/home/pi/python_games
 tar xvf files/python_games.tar.gz -C ${ROOTFS_DIR}/home/pi/python_games --strip-components=1
+tar xvf files/WebIOPi-0.7.1.tar.gz -C ${ROOTFS_DIR}/home/pi/webiopi 
 chown 1000:1000 ${ROOTFS_DIR}/home/pi/python_games -Rv
+chown 1000:1000 ${ROOTFS_DIR}/home/pi/webiopi -Rv
 chmod +x ${ROOTFS_DIR}/home/pi/python_games/launcher.sh
+chmod +x ${ROOTFS_DIR}/home/pi/webiopi/setup.sh
+./setup.sh -n
 
 install -v -o 1000 -g 1000 -d "${ROOTFS_DIR}/home/pi/Documents"
 install -v -o 1000 -g 1000 -d "${ROOTFS_DIR}/home/pi/Documents/BlueJ Projects"
