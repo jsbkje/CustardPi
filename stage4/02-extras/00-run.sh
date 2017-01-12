@@ -22,7 +22,7 @@ chown 1000:1000 ${ROOTFS_DIR}/home/pi/WebIOPi-0.7.1 -Rv
 chmod +x ${ROOTFS_DIR}/home/pi/python_games/launcher.sh
 chmod +x ${ROOTFS_DIR}/home/pi/WebIOPi-0.7.1/setup.sh
 
-on_chroot  ${ROOTFS_DIR}/home/pi/WebIOPi-0.7.1/setup.sh
+  
 
 
 install -v -o 1000 -g 1000 -d "${ROOTFS_DIR}/home/pi/Documents"
@@ -38,3 +38,7 @@ install -v -o 1000 -g 1000 -d "${ROOTFS_DIR}/home/pi/.local"
 install -v -o 1000 -g 1000 -d "${ROOTFS_DIR}/home/pi/.local/share"
 install -v -o 1000 -g 1000 -d "${ROOTFS_DIR}/home/pi/.local/share/applications"
 install -v -o 1000 -g 1000 -d "${ROOTFS_DIR}/home/pi/.local/share/desktop-directories"
+
+on_chroot << EOF
+${ROOTFS_DIR}/home/pi/WebIOPi-0.7.1/setup.sh
+EOF
